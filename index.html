@@ -1,0 +1,310 @@
+<html lang="es" class="scroll-smooth"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bar Vi | Bar de Cata de Vinos — Madrid</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-display { font-family: 'Instrument Serif', serif; }
+::selection { background: rgba(139,69,19,0.15); color: #1c1917; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c4b5a3; border-radius: 10px; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: translateY(60px) scale(0.97); filter: blur(8px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+.hero-text-1 { animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+.hero-text-2 { animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+.hero-text-3 { animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+.hero-text-4 { animation: heroFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both; }
+@keyframes navSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-animate { animation: navSlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-gentle { animation: gentleFloat 5s ease-in-out infinite; }
+@keyframes shimmerGold {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(196,169,126,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmerGold 4s ease infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.breathe { animation: breathe 4s ease-in-out infinite; }
+.gallery-card { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s ease; }
+.gallery-card:hover { transform: scale(1.015) translateY(-4px); box-shadow: 0 30px 80px -20px rgba(28,25,23,0.2); }
+.gallery-card img { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.gallery-card:hover img { transform: scale(1.06); }
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-enter { animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.link-hover { position: relative; }
+.link-hover::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.link-hover:hover::after { width: 100%; }
+.map-filter iframe { filter: saturate(0.6) contrast(1.05) brightness(0.95); transition: filter 0.6s ease; }
+.map-filter:hover iframe { filter: saturate(0.85) contrast(1) brightness(1); }
+.grain::before { content: ''; position: absolute; inset: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1; }
+.step-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.step-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.06); border-color: rgba(196,169,126,0.25); }
+.menu-item { transition: all 0.3s ease; }
+.menu-item:hover { padding-left: 8px; }
+.menu-item:hover h4 { color: #78350f; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          900: '#1a1611', 800: '#2c2419', 700: '#3d3225', 600: '#524530',
+          500: '#78674d', 400: '#a8977d', 300: '#c4b5a3', 200: '#ddd4c6',
+          150: '#eae4da', 100: '#f3efe8', 50: '#f9f7f3', 25: '#fcfbf9',
+        },
+        gold: { DEFAULT: '#c4a97e', light: '#dbc9a8', dark: '#9a8260' },
+        wine: { DEFAULT: '#4a1525', light: '#6b2240', dark: '#2d0a15' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-brand-50 text-brand-700 antialiased overflow-x-hidden">
+
+<!-- Navegación -->
+<nav id="main-nav" class="nav-animate fixed top-0 w-full z-50 transition-all duration-700" style="background: rgba(249, 247, 243, 0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(221, 212, 198, 0.5);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 border border-brand-300 group-hover:border-gold group-hover:bg-brand-900 rounded-full flex items-center justify-center transition-all duration-500">
+          <span class="group-hover:text-gold transition-colors duration-500 text-xl italic text-[#a7977d] font-display">V</span>
+        </div>
+        <div class="hidden sm:flex flex-col">
+          <span class="uppercase md:text-[#a7977d] text-sm font-medium tracking-[0.08em]" style="font-size: 11px; letter-spacing: 0.15em">Bar Vi · Madrid</span>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-12">
+        <a href="#concepto" class="link-hover text-xs font-medium tracking-[0.12em] uppercase text-brand-500 hover:text-brand-800 transition-colors duration-300">Nuestra Historia</a>
+        <a href="#cata" class="link-hover text-xs font-medium tracking-[0.12em] uppercase text-brand-500 hover:text-brand-800 transition-colors duration-300">La Cata</a>
+        <a href="#galeria" class="link-hover text-xs font-medium tracking-[0.12em] uppercase text-brand-500 hover:text-brand-800 transition-colors duration-300">Galería</a>
+        <a href="#carta" class="link-hover text-xs font-medium tracking-[0.12em] uppercase text-brand-500 hover:text-brand-800 transition-colors duration-300">La Carta</a>
+        <a href="#infos" class="link-hover text-xs font-medium tracking-[0.12em] uppercase text-brand-500 hover:text-brand-800 transition-colors duration-300">Contacto</a>
+      </div>
+      <div class="flex items-center gap-5">
+        <button onclick="toggleModal('reservation-modal')" class="group bg-brand-900 text-brand-100 px-6 py-2.5 rounded-full text-xs font-medium tracking-[0.1em] uppercase hover:bg-wine transition-all duration-500 flex items-center gap-2.5 shadow-lg shadow-brand-900/10 hover:shadow-xl hover:shadow-wine/15">
+          Reservar
+          <iconify-icon icon="solar:arrow-right-up-linear" width="14" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" style="stroke-width:1.5"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative h-screen flex items-end overflow-hidden grain">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=2560&q=85" alt="Bar Vi Madrid" class="w-full h-full object-cover" style="filter: brightness(0.42) saturate(1.2) contrast(1.08);">
+    <div class="absolute top-0 right-0 bottom-0 left-0" style="background: linear-gradient(180deg, rgba(26,22,17,0.3) 0%, rgba(26,22,17,0.15) 30%, rgba(26,22,17,0.65) 70%, rgba(26,22,17,0.95) 100%)"></div>
+  </div>
+  <div class="lg:px-10 lg:pb-28 w-full max-w-7xl z-10 mr-auto ml-auto pr-6 pb-20 pl-6 relative">
+    <div class="max-w-4xl">
+      <div class="hero-text-1 flex items-center gap-4 mb-8">
+        <div class="w-12 h-[1px] bg-gold/60"></div>
+        <span class="text-xs font-medium tracking-[0.25em] uppercase text-gold/80">Bar de Cata · Madrid</span>
+      </div>
+      <h1 class="hero-text-2 font-serif text-white leading-[0.95] tracking-tight mb-8" style="font-size: clamp(3.2rem, 8vw, 7rem);">
+        <span class="font-light">Donde el vino</span><br>
+        <span class="italic font-light text-gold-light" style="font-size: 0.85em;">cuenta su historia</span>
+      </h1>
+      <p class="hero-text-3 text-lg md:text-xl text-white/60 max-w-lg font-light leading-relaxed mb-12">
+        Catas guiadas, vinos naturales y una selección de más de <span class="text-white/90 font-normal">200 referencias</span> en el corazón de Madrid.
+      </p>
+      <div class="hero-text-4 flex flex-col sm:flex-row items-start gap-4">
+        <button onclick="toggleModal('reservation-modal')" class="group hover:bg-gold-light transition-all duration-500 flex text-lg italic text-brand-900 tracking-tight font-serif bg-white rounded-full pt-2 pr-8 pb-2 pl-8 shadow-2xl gap-x-4 gap-y-4 items-center">
+          Reservar una cata
+          <iconify-icon icon="solar:arrow-right-linear" width="18" class="group-hover:translate-x-1 transition-transform duration-300" style="stroke-width:1.5"></iconify-icon>
+        </button>
+        <a href="#carta" class="hover:bg-white/8 hover:border-white/25 transition-all duration-500 text-base italic text-white/80 tracking-wider font-serif border-white/15 border rounded-full pt-2 pr-8 pb-2 pl-8 backdrop-blur-sm">
+          Ver la carta de vinos
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 right-10 hidden lg:flex flex-col items-center gap-3 text-white/25">
+      <span class="text-xs tracking-[0.2em] uppercase" style="writing-mode: vertical-rl;">Scroll</span>
+      <div class="w-[1px] h-12 bg-white/20 relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1/2 bg-gold/60 float-gentle"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Trust Bar -->
+<div class="bg-brand-25 border-y border-brand-150">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center justify-center gap-8 md:gap-16 text-brand-400">
+    <div class="flex items-center gap-2.5">
+      <iconify-icon icon="solar:wineglass-linear" width="17" class="text-gold-dark" style="stroke-width:1.5"></iconify-icon>
+      <span class="text-xs tracking-[0.1em] uppercase font-medium">+200 Referencias</span>
+    </div>
+    <div class="w-1 h-1 rounded-full bg-brand-200 hidden md:block"></div>
+    <div class="flex items-center gap-2.5">
+      <iconify-icon icon="solar:leaf-linear" width="17" class="text-gold-dark" style="stroke-width:1.5"></iconify-icon>
+      <span class="text-xs tracking-[0.1em] uppercase font-medium">Vinos Naturales</span>
+    </div>
+    <div class="w-1 h-1 rounded-full bg-brand-200 hidden md:block"></div>
+    <div class="flex items-center gap-2.5">
+      <iconify-icon icon="solar:chef-hat-minimalistic-linear" width="17" class="text-gold-dark" style="stroke-width:1.5"></iconify-icon>
+      <span class="text-xs tracking-[0.1em] uppercase font-medium">Tapas de Autor</span>
+    </div>
+    <div class="w-1 h-1 rounded-full bg-brand-200 hidden md:block"></div>
+    <div class="flex items-center gap-2.5">
+      <iconify-icon icon="solar:star-bold" width="14" class="text-gold-dark"></iconify-icon>
+      <span class="text-xs tracking-[0.1em] uppercase font-medium">4.9 / 5 Google</span>
+    </div>
+  </div>
+</div>
+
+<!-- Concepto -->
+<section id="concepto" class="py-32 lg:py-40 px-6 bg-brand-50 relative grain">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+    <div class="lg:col-span-5 relative reveal">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=1200&q=85" alt="Selección de vinos Bar Vi" class="w-full rounded-2xl shadow-2xl shadow-brand-900/10" style="aspect-ratio: 3 / 4; object-fit: cover; object-position: center;">
+        <div class="absolute inset-0 rounded-2xl" style="box-shadow: inset 0 0 0 1px rgba(196,169,126,0.15);"></div>
+      </div>
+      <div class="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-2xl shadow-xl shadow-brand-900/8 p-5 border border-brand-100 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #f3efe8 0%, #dbc9a8 100%);">
+          <iconify-icon icon="solar:star-bold" class="text-gold-dark" width="22"></iconify-icon>
+        </div>
+        <div>
+          <div class="font-serif text-2xl text-brand-900 tracking-tight">4.9<span class="text-brand-300 text-lg">/5</span></div>
+          <div class="text-xs text-brand-400 tracking-wider">Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-6 lg:col-start-7 space-y-8">
+      <div class="reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-10 h-[1px] bg-gold"></div>
+          <span class="text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">Nuestra Historia</span>
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-900 leading-[1.05] tracking-tight font-light">
+          El vino<br>
+          <span class="italic">como experiencia,</span><br>
+          no como liturgia
+        </h2>
+      </div>
+      <div class="reveal reveal-delay-1 space-y-5 text-brand-500 leading-[1.8]">
+        <p class="text-lg font-light">En Bar Vi creemos que el vino debe ser accesible, emocionante y lleno de conversación.</p>
+        <p class="font-light">Nacimos con la vocación de acercar la cultura vinícola española e internacional a todos, con catas guiadas por sumilleres apasionados, maridajes con tapas de temporada y un ambiente íntimo en pleno corazón de Madrid.</p>
+      </div>
+      <div class="reveal reveal-delay-2 pt-8 grid grid-cols-3 gap-8 border-t border-brand-150">
+        <div>
+          <span class="block font-serif text-3xl lg:text-4xl text-brand-900 tracking-tight font-light">2018</span>
+          <span class="text-xs tracking-[0.15em] uppercase text-brand-400 mt-2 block font-medium">Apertura</span>
+        </div>
+        <div>
+          <span class="block font-serif text-3xl lg:text-4xl text-brand-900 tracking-tight font-light italic">+200</span>
+          <span class="text-xs tracking-[0.15em] uppercase text-brand-400 mt-2 block font-medium">Referencias</span>
+        </div>
+        <div>
+          <span class="block font-serif text-3xl lg:text-4xl text-brand-900 tracking-tight font-light">Madrid</span>
+          <span class="text-xs tracking-[0.15em] uppercase text-brand-400 mt-2 block font-medium">Corazón</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galería -->
+<section id="galeria" class="py-28 lg:py-36 px-6 bg-white relative grain">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-10 h-[1px] bg-gold"></div>
+        <span class="text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">Galería</span>
+        <div class="w-10 h-[1px] bg-gold"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-900 tracking-tight font-light italic">El Ambiente Vi</h2>
+    </div>
+    <div class="grid grid-cols-12 gap-3 md:gap-4">
+      <div class="col-span-12 md:col-span-7 reveal">
+        <div class="gallery-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1200&q=80" alt="Bodega Bar Vi" class="w-full h-full object-cover" style="aspect-ratio: 16 / 10">
+        </div>
+      </div>
+      <div class="col-span-6 md:col-span-5 reveal reveal-delay-1">
+        <div class="gallery-card rounded-2xl overflow-hidden h-full">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80" alt="Selección de vinos" class="w-full h-full object-cover" style="aspect-ratio: 4 / 3">
+        </div>
+      </div>
+      <div class="col-span-6 md:col-span-4 reveal reveal-delay-2">
+        <div class="gallery-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Cata de vinos" class="w-full h-full object-cover" style="aspect-ratio: 1 / 1;">
+        </div>
+      </div>
+      <div class="col-span-6 md:col-span-4 reveal reveal-delay-3">
+        <div class="gallery-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80" alt="Tapas de autor" class="w-full h-full object-cover" style="aspect-ratio: 1 / 1;">
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-4 reveal reveal-delay-4">
+        <div class="gallery-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?w=800&q=80" alt="Interior Bar Vi" class="w-full h-full object-cover" style="aspect-ratio: 16 / 16">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- La Cata -->
+<section id="cata" class="py-32 lg:py-40 px-6 relative overflow-hidden" style="background: linear-gradient(170deg, #1a1611 0%, #2d0a15 50%, #1a1611 100%);">
+  <div class="absolute inset-0 grain" style="opacity: 0.5;"></div>
+  <div class="absolute top-0 left-0 w-full h-px shimmer-gold"></div>
+  <div class="absolute bottom-0 left-0 w-full h-px shimmer-gold"></div>
+  <div class="absolute top-20 right-20 w-96 h-96 rounded-full border border-gold/5 breathe hidden lg:block"></div>
+  <div class="absolute bottom-20 left-10 w-64 h-64 rounded-full border border-gold/3 breathe hidden lg:block" style="animation-delay: 2s;"></div>
+  <div class="max-w-6xl z-10 mr-auto ml-auto relative">
+    <div class="text-center max-w-2xl mx-auto mb-24 reveal">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full border border-gold/20 mb-8">
+        <iconify-icon icon="solar:wineglass-linear" class="text-gold" width="28" style="stroke-width:1.5"></iconify-icon>
+      </div>
+      <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl text-white tracking-tight font-light mb-6">
+        La Cata <span class="italic text-gold-light">Vi</span>
+      </h2>
+      <p class="text-white/40 text-lg font-light">No leas la carta de vinos — vívela.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="step-card reveal lg:p-10 border-white/6 border rounded-2xl pt-8 pr-8 pb-8 pl-8 backdrop-blur-sm">
+        <div class="text-gold/30 text-5xl italic font-serif mb-6">01</div>
+        <h3 class="text-2xl font-light text-white tracking-tight font-serif mb-4">Elige tu cata</h3>
+        <p class="leading-[1.8] text-sm font-light text-white/35">Blancos, tintos, naturales o espumosos. Diseñamos cada sesión según tus preferencias y nivel de conocimiento.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-1 lg:p-10 border-white/6 border rounded-2xl pt-8 pr-8 pb-8 pl-8 backdrop-blur-sm">
+        <div class="font-serif italic text-5xl text-gold/30 mb-6">02</div>
+        <h3 class="font-serif text-2xl text-white mb-4 font-light tracking-tight">Aprende catando</h3>
+        <p class="text-white/35 text-sm leading-[1.8] font-light">Nuestros sumilleres te guían a través de aromas, texturas y orígenes. Sin tecnicismos, con mucha pasión.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2 lg:p-10 border-gold/15 border rounded-2xl pt-8 pr-8 pb
